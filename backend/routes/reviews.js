@@ -4,7 +4,6 @@ const Review = require('../models/Review');
 const Course = require('../models/Course');
 const auth = require('../middleware/auth');
 
-// Get reviews for a course
 router.get('/course/:courseId', async (req, res) => {
   try {
     const reviews = await Review.find({ course: req.params.courseId })
@@ -16,7 +15,6 @@ router.get('/course/:courseId', async (req, res) => {
   }
 });
 
-// Add a review
 router.post('/', auth, async (req, res) => {
   try {
     const { courseId, rating, comment } = req.body;
